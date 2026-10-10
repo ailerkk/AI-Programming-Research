@@ -88,7 +88,7 @@ AI-Programming-Research/
 
 ## 8. Quickstart Guide
 
-After all project files are added, the benchmark can be executed using Docker:
+To run the benchmark, open a terminal in the project folder and execute the following commands using Docker.
 
 ```bash
 docker build -t ai-programming-research .
@@ -96,6 +96,17 @@ docker run --rm ai-programming-research
 ```
 
 The benchmark will read the sample dataset, calculate performance metrics, and print the results.
+
+
+### Run without Docker
+
+You can also run the benchmark using Python:
+
+```bash
+pip install -r requirements.txt
+python src/benchmark.py
+```
+
 
 ## 9. Planned Benchmark Results
 
