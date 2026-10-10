@@ -1,0 +1,30 @@
+name: Test Research Benchmark
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run benchmark
+        run: python src/benchmark.py
+
+      - name: Build Docker image
+        run: docker build -t ai-programming-research .
+
+      - name: Run Docker benchmark
+        run: docker run --rm ai-programming-research
