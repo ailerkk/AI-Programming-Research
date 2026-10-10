@@ -1,0 +1,23 @@
+project:
+  name: "AI Programming Research"
+  research_type: "quantitative"
+  data_type: "synthetic"
+
+data:
+  input_file: "data/sample/sample_results.csv"
+
+experiment:
+  groups:
+    - "no_ai"
+    - "ai_hints"
+    - "ai_solutions"
+
+metrics:
+  primary: "independent_task_score"
+  secondary:
+    - "completion_time_min"
+    - "concept_score"
+    - "programming_errors"
+
+output:
+  directory: "results"
