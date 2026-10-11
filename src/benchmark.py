@@ -6,14 +6,11 @@ import yaml
 
 
 def main():
-    # Find the project folder
     project_dir = Path(__file__).resolve().parent.parent
 
-    # Read experiment configuration
     with open(project_dir / "configs/config.yaml", encoding="utf-8") as file:
         config = yaml.safe_load(file)
-
-    # Read the sample dataset
+        
     data_path = project_dir / config["data"]["input_file"]
 
     with open(data_path, newline="", encoding="utf-8") as file:
@@ -27,7 +24,6 @@ def main():
     print("Data type:", config["project"]["data_type"])
     print("-" * 45)
 
-    # Compare the three research groups
     for group in config["experiment"]["groups"]:
         students = [row for row in records if row["group"] == group]
 
